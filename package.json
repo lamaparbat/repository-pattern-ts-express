@@ -2,13 +2,13 @@
   "name": "repository-pattern-ts-express",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/server.js",
   "scripts": {
     "build": "npx tsc && pm2 update",
     "pm2-start": "pm2 start ./dist/src/server.js && pm2 save",
-    "start": "npm run build && npm run pm2-start",
-    "dev": "npx tsc && npm run pm2-start",
-    "prod": "npm start",
+    "start": "nodemon ./src/server.ts",
+    "prod": "export NODE_ENV=production || set NODE_ENV=production && npx tsc && pm2 start ./dist/server.js --ignore-watch=node_modules && pm2 save && nodemon ./dist/server.js -i max",
+    "dev": "export NODE_ENV=development || set NODE_ENV=development && pm2 start npm -- start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

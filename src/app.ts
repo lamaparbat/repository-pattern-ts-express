@@ -12,9 +12,10 @@ app.use(cors());
 app.use(helmet());
 
 
+
 // routes
-app.get("/", () => {
-  console.log("default routes");
+app.get("/", (req, res) => {
+  res.send("Server has started....")
 });
 
 
