@@ -18,5 +18,4 @@ app.get("/", (req, res) => {
   res.send("Server has started....")
 });
 
-
 export default app;
