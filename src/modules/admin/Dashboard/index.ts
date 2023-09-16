@@ -1,16 +1,11 @@
 import { Router } from "express";
-import { routeValidator } from "../../../shared/utils/index";
-import { GetAdminLists } from "./routes-payload-schema";
 import { getAdminLists } from "./controller";
+import jwtAuthMiddleware from "../../../shared/middlewares/jwtAuthMiddleware";
 
 const DashboardRouter = Router();
 
-// middleware
-// DashboardRouter.use();
-
-
+DashboardRouter.use(jwtAuthMiddleware);
 DashboardRouter.route("/dashboard").get(getAdminLists);
-
 
 export default DashboardRouter;
 

@@ -1,9 +1,10 @@
 import { Router } from "express";
-import DashboardRouter from "./Dashboard/";
-
+import DefaultRouter from "./Default";
+import DashboardRouter from "./Dashboard";
 
 const AdminRouter = Router();
 
-AdminRouter.use("/admin", DashboardRouter);
+AdminRouter.use("/admin", DefaultRouter);
+AdminRouter.use("/admin/dashboard", DashboardRouter);
 
 export default AdminRouter;
