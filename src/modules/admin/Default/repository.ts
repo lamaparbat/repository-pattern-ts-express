@@ -18,6 +18,7 @@ class DefaultRepository implements GenericRepository<Admin>{
   }
 
   async findOne(criteria: any) {
+    console.log(criteria, 123)
     return this.dataSource.findOne(criteria);
   }
   async insertOne(item: Admin) {

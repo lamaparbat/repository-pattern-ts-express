@@ -1,19 +1,22 @@
 
 import { NextFunction, Request, Response } from "express";
-import services from "./services";
 import { ResponseDTO } from "../../../shared/dtos/response.dto";
 import { MESSAGE_TEXT } from "../../../shared/constants";
+import config from "../../../config";
+import { container } from "../../../config/dependencyRegistration";
 
-const login = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const response = await services.login(req.body);
+export default class DefaultController {
+  static async login (req: Request | any, res: Response, next: NextFunction) {
+    try {
+      const services = container.resolve("defaultAdminServices");
 
-    return new ResponseDTO(200, MESSAGE_TEXT.LOGIN_SUCCESS, response);
-  } catch (error) {
-    return new ResponseDTO(200, MESSAGE_TEXT.LOGIN_FAILED, error);
+      const response = await services.login(req.body);
+
+      return new ResponseDTO(200, MESSAGE_TEXT.LOGIN_SUCCESS, response);
+    } catch (error) {
+      return new ResponseDTO(500, MESSAGE_TEXT.SERVER_ERROR, error);
+    }
   }
-}
 
-export default {
-  login
+
 }

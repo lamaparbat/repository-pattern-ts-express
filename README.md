@@ -6,7 +6,7 @@ Minimal implementation of Restapis using express, typescript, Repository pattern
 
 #### 1. Basic dependencies
 ```
-  npm install express dotenv nodemon
+  npm install express dotenv nodemon jwt joi mongoose pm2
 ```
 
 #### 2. Typescript dependencies

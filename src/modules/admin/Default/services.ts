@@ -1,16 +1,18 @@
-import { ResponseDTO } from "../../../shared/dtos/response.dto";
 import { GenericRepository } from "../../../shared/repositories/generic.repository";
 import { Admin, UserLoginPayload } from "../../../shared/types";
 import { AdminModel } from "./model";
 import DefaultRepository from "./repository";
 
-const login = async (payload: UserLoginPayload) => {
-  const repository: GenericRepository<Admin> = new DefaultRepository(AdminModel);
+// const repository: GenericRepository<Admin> = new DefaultRepository(AdminModel);
 
-  return await repository.findOne(payload);
-}
+export default class DefaultAdminServices {
+    repository: GenericRepository<Admin>; 
+    constructor(opts: any) {
+      this.repository = opts.DefaultRepository;
+    }
 
+   public async login (payload: UserLoginPayload) {
+    return await this.repository.findOne(payload);
+  }
 
-export default {
-  login
 }

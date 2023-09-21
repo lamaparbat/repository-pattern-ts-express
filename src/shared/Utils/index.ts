@@ -1,6 +1,8 @@
-import { routeValidator } from "./routesValidator"
+import { routeValidator } from "./routesValidator";
+import initConnection from "./bootstrap";
 
 
 export {
-  routeValidator
+  routeValidator,
+  initConnection
 }

@@ -1,11 +1,11 @@
 import app from "./app";
+import { registerDependency } from "./config/dependencyRegistration";
 import config from "./config/index";
 import AdminRouter from "./modules/admin";
+import { initConnection } from "./shared/utils";
 
-const PORT = process.env.PORT || config.port;
-
-app.use("/v1", [AdminRouter]);
-
-app.listen(PORT, () => {
-  console.log(`Server has started at port ${PORT}....`)
+initConnection().then(() => {
+  registerDependency();
+  app.use("/v1", [AdminRouter]);
+  app.listen(config.port, () => console.log(`Server has started at port ${config.port}....`));
 });
