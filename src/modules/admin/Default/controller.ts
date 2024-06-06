@@ -1,8 +1,9 @@
 
 import { NextFunction, Request, Response } from "express";
-import { ResponseDTO } from "../../../shared/dtos/response.dto";
-import { MESSAGE_TEXT } from "../../../shared/constants";
+
 import config from "../../../config";
+import { MESSAGE_TEXT } from "../../../shared/constants";
+import { ResponseDTO } from "../../../shared/dtos/response.dto";
 
 export default class DefaultController {
   static async login (req: Request | any, res: Response, next: NextFunction) {

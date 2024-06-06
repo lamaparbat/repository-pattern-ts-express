@@ -1,5 +1,5 @@
-import { GenericRepository } from "../../../shared/repositories/generic.repository";
 import { Admin, UserLoginPayload } from "../../../shared/types";
+import { GenericRepository } from "../../../shared/repositories/generic.repository";
 
 export default class DefaultAdminServices {
   private repository: GenericRepository<Admin>; 

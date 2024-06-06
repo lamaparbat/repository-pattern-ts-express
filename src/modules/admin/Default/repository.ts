@@ -1,6 +1,6 @@
+import { AdminModel } from "./model";
 import { Admin } from "../../../shared/types/index";
 import { GenericRepository } from "../../../shared/repositories/generic.repository";
-import { AdminModel } from "./model";
 
 class DefaultRepository implements GenericRepository<Admin>{
   dataSource: any;

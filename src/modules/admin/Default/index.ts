@@ -1,7 +1,8 @@
 import { RequestHandler, Router } from "express";
-import { routeValidator } from "../../../shared/utils/index";
-import { LoginPayload } from "../Dashboard/routes-payload-schema";
+
 import DefaultController from "./controller";
+import { routeValidator } from "../../../shared/utils";
+import { LoginPayload } from "../Dashboard/routes-payload-schema";
 
 const DefaultRouter = Router();
 

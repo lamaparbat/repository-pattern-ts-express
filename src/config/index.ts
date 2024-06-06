@@ -1,13 +1,17 @@
 
 import { ENVIRONMENT_STATUS } from "../shared/constants";
-import mongodbConfig from "./mongodb.config";
 import { container, registerDependency } from "./dependencyRegistration";
 
-const productConfig = {};
+const productConfig = {
+  port: process.env.PORT || 8085,
+  mongoUri : process.env.MONGODB_URL,
+  jwtSecret: process.env.jwtSecret || "hacker123",
+};
+
 const developmentConfig = {
   port: process.env.PORT || 8085,
+  mongoUri : process.env.MONGODB_URL,
   jwtSecret: process.env.jwtSecret || "hacker123",
-  mongoUri : process.env.MONGODB_URL || mongodbConfig.DEV_URL,
   container, registerDependency
 }
 

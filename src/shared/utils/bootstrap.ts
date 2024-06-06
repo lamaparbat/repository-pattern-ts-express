@@ -11,9 +11,7 @@ const initMongoConnection = async () => {
     );
 }
 
-const initConnection = async () => {
+export const initConnection = async () => {
   await initMongoConnection();
   await initSequelizeConnection();
 }
-
-export default initConnection;

@@ -1,5 +1,6 @@
-import { Request, Response, NextFunction } from "express";
 import Joi from "joi";
+import { Request, Response, NextFunction } from "express";
+
 import { ResponseDTO } from "../dtos/response.dto";
 
 
