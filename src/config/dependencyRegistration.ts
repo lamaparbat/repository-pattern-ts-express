@@ -1,19 +1,26 @@
-import { InjectionMode, asClass, createContainer } from "awilix";
+import { InjectionMode, asClass, asValue, createContainer } from "awilix";
 
-// Routes: '/admin'
-import DefaultAdminServices from "../modules/admin/Default/services";
-import DefaultController from "../modules/admin/Default/controller";
-import DefaultRepository from "../modules/admin/Default/repository";
+import UserDao from "../modules/user/dao";
+import userModel from "../modules/user/models";
+import UserService from "../modules/user/services";
+import UserController from "../modules/user/controllers";
+import UserRepository from "../modules/user/repositories";
 
-const container = createContainer({ injectionMode: InjectionMode.PROXY  });
+
+const container = createContainer({ injectionMode: InjectionMode.PROXY });
+
 const registerDependency = () => {
   container.register({
-    defaultAdminServices: asClass(DefaultAdminServices),
-    defaultAdminController: asClass(DefaultController),
-    defaultRepository: asClass(DefaultRepository),
-
+    userDb: asValue(userModel),
+    userDao: asClass(UserDao),
+    userService: asClass(UserService),
+    userController: asClass(UserController),
+    userRepository: asClass(UserRepository),
   });
+
   console.log("Dependency registered ...");
 }
 
-export {container, registerDependency};
+registerDependency();
+
+export { container };

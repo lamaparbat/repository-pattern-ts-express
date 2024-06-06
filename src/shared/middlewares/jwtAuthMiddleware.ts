@@ -1,8 +1,8 @@
-import { NextFunction, Request, Response } from "express";
+import jwt from "jsonwebtoken";
+import config from "../../config";
 import { STATUS_CODES } from "http";
 import { ResponseDTO } from "../dtos/response.dto";
-import config from "../../config";
-import jwt from "jsonwebtoken";
+import { NextFunction, Request, Response } from "express";
 
 const jwtAuthMiddleware = (req: Request, res: Response, next: NextFunction) => {
   const jwtToken = req.headers["authorization"];
