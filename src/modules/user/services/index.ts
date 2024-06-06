@@ -10,8 +10,9 @@ class UserService {
 
     async login(params: IUserLoginParams) {
         try {            
-            const res = this.userRepository.findOne(params);
-            return { data: [], error: null };
+            const res = await this.userRepository.findOne(params);
+
+            return { data: res, error: null };
 
         } catch (error) {
             return { data: null, error: error };
