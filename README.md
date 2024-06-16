@@ -11,7 +11,7 @@ Minimal implementation of Restapis using express, typescript, Repository pattern
 
 #### 2. Typescript dependencies
 ```
-  npm install -D typescript @types/express @types/node
+  npm install -D typescript awilix awilix-express ts-node @types/express @types/node
 ```
 
 ### 3. Generate tsconfig file
